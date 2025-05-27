@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: monero-wallet-rpc
+spec:
+  selector:
+    app: monero-wallet-rpc
+
+  ports:
+    - protocol: TCP
+      port: 18082
+      targetPort: 28081
+  type: ClusterIP

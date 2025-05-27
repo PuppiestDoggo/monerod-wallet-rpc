@@ -1,0 +1,6 @@
+apiVersion: v2
+name: monerod-wallet-rpc
+description: A Helm chart for exposing monero-waller-RPC
+type: application
+version: 0.1.0
+appVersion: "0.18"

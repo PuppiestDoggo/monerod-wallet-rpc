@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monero-wallet-rpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monero-wallet-rpc
+  template:
+    metadata:
+      labels:
+        app: monero-wallet-rpc
+    spec:
+      nodeSelector:
+        monerod: "true"
+        walletType: "rw"
+      containers:
+        - name: monero-wallet-rpc
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: {{ toJson .Values.command }}
+          args: {{ toJson .Values.args }}
+          ports:
+            - containerPort: 28081
+          volumeMounts:
+            - name: monero-data
+              mountPath: /monero/wallets
+      volumes:
+        - name: monero-data
+          hostPath:
+            path: /var/lib/monerod/wallets
+            type: DirectoryOrCreate
