@@ -1,27 +1,17 @@
-replicaCount: 3
-
 image:
   repository: blackmine57/monerod
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
-persistence:
-  enabled: true
-  storageClass: ""
-  accessMode: ReadWriteOnce
-  size: 1Gi
 
-resources: {}
-
-service:
-  type: ClusterIP
-  port: 18082
 
 command:
   - "monero-wallet-rpc"
 args:
   - "--testnet"
   - "--rpc-bind-port=28088"
+  - "--rpc-bind-ip=0.0.0.0"
+  - "--confirm-external-bind"
   - "--wallet-file=/monero/wallets/Pupero-MainWallet"
   - "--password=vm"
   - "--daemon-address=monero-testnet:28081"

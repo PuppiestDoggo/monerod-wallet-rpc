@@ -13,8 +13,7 @@ spec:
         app: monero-wallet-rpc
     spec:
       nodeSelector:
-        monerod: "true"
-        walletType: "rw"
+        wallet-rpc: "true"
       containers:
         - name: monero-wallet-rpc
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
