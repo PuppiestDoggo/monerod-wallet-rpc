@@ -20,7 +20,7 @@ spec:
           command: {{ toJson .Values.command }}
           args: {{ toJson .Values.args }}
           ports:
-            - containerPort: 28081
+            - containerPort: 18082
           volumeMounts:
             - name: monero-data
               mountPath: /monero/wallets

@@ -7,6 +7,6 @@ spec:
     app: monero-wallet-rpc
   ports:
     - protocol: TCP
-      port: 28081
-      targetPort: 28081
+      port: 18082
+      targetPort: 18082
   type: ClusterIP

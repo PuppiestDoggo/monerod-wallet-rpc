@@ -9,9 +9,12 @@ command:
   - "monero-wallet-rpc"
 args:
   - "--testnet"
-  - "--rpc-bind-port=28088"
+  - "--rpc-bind-port=18082"
   - "--rpc-bind-ip=0.0.0.0"
   - "--confirm-external-bind"
   - "--wallet-file=/monero/wallets/Pupero-MainWallet"
   - "--password=vm"
+  - "--log-level=4"
+  - "--rpc-login=pup:pup"
   - "--daemon-address=monero-testnet:28081"
+  - "--trusted-daemon"
